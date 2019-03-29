@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./SearchBar.css";
 
 class SearchBar extends Component {
   constructor(props) {
@@ -19,13 +20,13 @@ class SearchBar extends Component {
       <section>
         <form className="container">
           <input
-            className="form-control mr-sm-2"
+            className="form-control"
             aria-label="Search"
             onChange={event => this.genericOnChange(event)}
             value={this.props.searchString}
             type="search"
             name="searchString"
-            placeholder="Search"
+            placeholder="Enter a word"
           />
         </form>
       </section>

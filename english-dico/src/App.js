@@ -22,30 +22,31 @@ class App extends Component {
     const { dictionaryArray, searchTarget } = this.state;
     return (
       <div className="App">
-        <SearchBar
-          searchSubmit={userText => this.searchSubmit(userText)}
-          searchString={searchTarget}
-          searchFilter={searchTarget}
-        />
+        <div>
+          <h1>My English Dictionary</h1>
+          <SearchBar
+            searchSubmit={userText => this.searchSubmit(userText)}
+            searchString={searchTarget}
+            searchFilter={searchTarget}
+          />
 
-        {dictionaryArray.map(wordByLetter => {
-          if (searchTarget !== "") {
-            return Object.keys(wordByLetter).map(oneWord => {
-              if (oneWord === searchTarget.toLowerCase()) {
-                console.log(oneWord);
-                console.log(wordByLetter[oneWord]);
-                return (
-                  <div key={oneWord}>
-                    <li>
-                      <p>{oneWord}</p>
+          {dictionaryArray.map(wordByLetter => {
+            if (searchTarget !== "") {
+              return Object.keys(wordByLetter).map(oneWord => {
+                if (oneWord === searchTarget.toLowerCase()) {
+                  console.log(oneWord);
+                  console.log(wordByLetter[oneWord]);
+                  return (
+                    <div className="definition" key={oneWord}>
+                      <p className="uppercase">{oneWord}</p>
                       <p>{wordByLetter[oneWord]}</p>
-                    </li>
-                  </div>
-                );
-              }
-            });
-          }
-        })}
+                    </div>
+                  );
+                }
+              });
+            }
+          })}
+        </div>
       </div>
     );
   }
