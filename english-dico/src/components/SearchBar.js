@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Dictionary from "../dictionary_alpha_arrays.json";
 
 class SearchBar extends Component {
   constructor(props) {
@@ -18,12 +17,13 @@ class SearchBar extends Component {
   render() {
     return (
       <section>
-        <form>
+        <form className="container">
           <input
-            className="search-input"
+            className="form-control mr-sm-2"
+            aria-label="Search"
             onChange={event => this.genericOnChange(event)}
             value={this.props.searchString}
-            type="text"
+            type="search"
             name="searchString"
             placeholder="Search"
           />

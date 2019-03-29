@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-
 import "./App.css";
 import SearchBar from "./components/SearchBar";
-
 import Dictionary from "./dictionary_alpha_arrays.json";
 
 class App extends Component {
@@ -33,15 +31,14 @@ class App extends Component {
         {dictionaryArray.map(wordByLetter => {
           if (searchTarget !== "") {
             return Object.keys(wordByLetter).map(oneWord => {
-              // if (oneWord.indexOf(searchTarget) > -1)
               if (oneWord === searchTarget.toLowerCase()) {
                 console.log(oneWord);
                 console.log(wordByLetter[oneWord]);
                 return (
                   <div key={oneWord}>
                     <li>
-                      <p>Word {oneWord}</p>
-                      <p>Definition {wordByLetter[oneWord]}</p>
+                      <p>{oneWord}</p>
+                      <p>{wordByLetter[oneWord]}</p>
                     </li>
                   </div>
                 );
@@ -49,23 +46,6 @@ class App extends Component {
             });
           }
         })}
-
-        {/* {searchTarget !== "" ? null : (
-            <div>
-              <ul>
-                {dictionaryArray.map(wordByLetter => {
-                  return Object.keys(wordByLetter).map(oneWord => {
-                    return (
-                      <li>
-                        <p>Word {oneWord}</p>
-                        <p>Definition {wordByLetter[oneWord]}</p>
-                      </li>
-                    );
-                  });
-                })}
-              </ul>
-            </div>
-          )} */}
       </div>
     );
   }
