@@ -19,6 +19,7 @@ class SearchBar extends Component {
   }
 
   render() {
+    // const { dictionaryArray, searchTarget } = this.state;
     return (
       <section>
         <form>
@@ -32,6 +33,22 @@ class SearchBar extends Component {
           />
           <button className="search-btn">Search</button>
         </form>
+        {/* {searchTarget === "" ? null : (
+          <div>
+            <ul>
+              {dictionaryArray.map(wordByLetter => {
+                return Object.keys(wordByLetter).map(oneWord => {
+                  return (
+                    <li>
+                      <p>Word {oneWord}</p>
+                      <p>Definition {wordByLetter[oneWord]}</p>
+                    </li>
+                  );
+                });
+              })}
+            </ul>
+          </div>
+        )} */}
       </section>
     );
   }

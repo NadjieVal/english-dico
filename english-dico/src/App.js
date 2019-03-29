@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   render() {
+    // console.log(this.state);
     const { dictionaryArray, searchTarget } = this.state;
     return (
       <div className="App">
@@ -35,6 +36,7 @@ class App extends Component {
           {dictionaryArray.map(wordByLetter => {
             if (searchTarget !== "") {
               return Object.keys(wordByLetter).map(oneWord => {
+                // if (oneWord.indexOf(searchTarget) > -1)
                 if (oneWord === searchTarget.toLowerCase()) {
                   console.log(oneWord);
                   console.log(wordByLetter[oneWord]);
@@ -50,6 +52,23 @@ class App extends Component {
               });
             }
           })}
+
+          {/* {searchTarget === "" ? null : (
+            <div>
+              <ul>
+                {dictionaryArray.map(wordByLetter => {
+                  return Object.keys(wordByLetter).map(oneWord => {
+                    return (
+                      <li>
+                        <p>Word {oneWord}</p>
+                        <p>Definition {wordByLetter[oneWord]}</p>
+                      </li>
+                    );
+                  });
+                })}
+              </ul>
+            </div>
+          )} */}
         </Switch>
       </div>
     );
