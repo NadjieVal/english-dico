@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Switch } from "react-router-dom";
 
 import "./App.css";
 import SearchBar from "./components/SearchBar";
@@ -22,38 +21,36 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.state);
     const { dictionaryArray, searchTarget } = this.state;
     return (
       <div className="App">
-        <Switch>
-          <SearchBar
-            searchSubmit={userText => this.searchSubmit(userText)}
-            searchString={searchTarget}
-            searchFilter={searchTarget}
-          />
+        <SearchBar
+          searchSubmit={userText => this.searchSubmit(userText)}
+          searchString={searchTarget}
+          searchFilter={searchTarget}
+        />
 
-          {dictionaryArray.map(wordByLetter => {
-            if (searchTarget !== "") {
-              return Object.keys(wordByLetter).map(oneWord => {
-                // if (oneWord.indexOf(searchTarget) > -1)
-                if (oneWord === searchTarget.toLowerCase()) {
-                  console.log(oneWord);
-                  console.log(wordByLetter[oneWord]);
-                  return (
-                    <div key={oneWord}>
-                      <li>
-                        <p>Word {oneWord}</p>
-                        <p>Definition {wordByLetter[oneWord]}</p>
-                      </li>
-                    </div>
-                  );
-                }
-              });
-            }
-          })}
+        {dictionaryArray.map(wordByLetter => {
+          if (searchTarget !== "") {
+            return Object.keys(wordByLetter).map(oneWord => {
+              // if (oneWord.indexOf(searchTarget) > -1)
+              if (oneWord === searchTarget.toLowerCase()) {
+                console.log(oneWord);
+                console.log(wordByLetter[oneWord]);
+                return (
+                  <div key={oneWord}>
+                    <li>
+                      <p>Word {oneWord}</p>
+                      <p>Definition {wordByLetter[oneWord]}</p>
+                    </li>
+                  </div>
+                );
+              }
+            });
+          }
+        })}
 
-          {/* {searchTarget === "" ? null : (
+        {/* {searchTarget !== "" ? null : (
             <div>
               <ul>
                 {dictionaryArray.map(wordByLetter => {
@@ -69,7 +66,6 @@ class App extends Component {
               </ul>
             </div>
           )} */}
-        </Switch>
       </div>
     );
   }
